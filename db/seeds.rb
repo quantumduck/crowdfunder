@@ -18,9 +18,28 @@ password: "password",
 password_confirmation: "password",
 id: 26
 )
+
 Project.create(
 title: "test",
-description: "Tester app",
+description: "A tester project",
+goal: 12345,
+start_date: Time.now.utc + rand(60).days,
+end_date: Time.now.utc + rand(61..1000).days,
+user_id: 26
+)
+
+Project.create(
+title: "test2",
+description: "Another tester project",
+goal: 12345,
+start_date: Time.now.utc + rand(60).days,
+end_date: Time.now.utc + rand(61..1000).days,
+user_id: 26
+)
+
+Project.create(
+title: "test3",
+description: "A third tester project",
 goal: 12345,
 start_date: Time.now.utc + rand(60).days,
 end_date: Time.now.utc + rand(61..1000).days,
