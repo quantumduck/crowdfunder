@@ -5,18 +5,30 @@ class PictureUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
   require 'carrierwave/orm/activerecord'
 
+  def extension_whitelist
+   %w(jpg jpeg gif png)
+ end
+
+  def content_type_whitelist
+    /image\//
+  end
+
+  def content_type_blacklist
+   ['application/text', 'application/json']
+  end
+
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
 
-  uploader = PictureUploader.new
-  uploader.store!(my_file)
-  uploader.retrieve_from_store!('my_file.png')
+  #uploader = PictureUploader.new
+  #uploader.store!(my_file)
+  #uploader.retrieve_from_store!('my_file.png')
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    'public/my/upload/directory'
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -26,10 +38,6 @@ class PictureUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
-
-  uploader = PictureUploader.new
-  uploader.store!(my_file)
-  uploader.retrieve_from_store!('my_file.png')
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
