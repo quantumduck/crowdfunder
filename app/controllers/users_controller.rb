@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:show]
   def new
     @user = User.new
   end
@@ -14,7 +15,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    
+    @projects = Array.new
+    Project.all.each do |project|
+    if project.user_id == current_user.id
+      @projects << project
+    end
+
+    end
   end
 
   private

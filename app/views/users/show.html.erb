@@ -1,1 +1,18 @@
 <h1>user show view</h1>
+
+
+<% @projects.each do |project| %>
+<h1>
+<%= project.title %>
+</h1>
+<h2>
+  <%= project.description %>
+</h2>
+<h3>
+  <%= project.goal %>
+</h3>
+
+<p>This project was created on <%= project.start_date %></p>
+<p>Funding window will close on <%= project.end_date %></p>
+
+<% end %>
