@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170504191636) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +36,8 @@ ActiveRecord::Schema.define(version: 20170504191636) do
     t.datetime "updated_at"
     t.string   "image"
     t.string   "picture"
+    t.integer  "user_id"
+
   end
 
   create_table "rewards", force: :cascade do |t|
@@ -62,4 +65,5 @@ ActiveRecord::Schema.define(version: 20170504191636) do
 
   add_foreign_key "pledges", "rewards"
   add_foreign_key "pledges", "users"
+  add_foreign_key "projects", "users"
 end
