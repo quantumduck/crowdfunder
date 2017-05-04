@@ -14,14 +14,16 @@ Project.destroy_all
   p = Project.create!(
     title: Faker::App.name,
     description: Faker::Lorem.paragraph,
-    goal: rand(100000),
-    start_date: Time.now.utc - rand(60).days,
-    end_date: Time.now.utc + rand(10).days
+    goal: rand(1..100000),
+    start_date: Time.now.utc + rand(60).days,
+    end_date: Time.now.utc + rand(61..1000).days
   )
+  puts p.start_date
+  puts "---------------"
  5.times do
    p.rewards.create!(
      description: Faker::Superhero.power,
-     dollar_amount: rand(100),
+     dollar_amount: rand(1..100),
    )
  end
 end
