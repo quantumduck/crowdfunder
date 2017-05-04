@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
+      UserMailer.sign_up(@user).deliver_later
       redirect_to projects_url
     else
       render 'new'
