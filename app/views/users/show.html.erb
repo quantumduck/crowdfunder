@@ -3,16 +3,23 @@
 
 <% @projects.each do |project| %>
 <h1>
+  <a href="/projects/<%=project.id%>">
 <%= project.title %>
+</a>
 </h1>
 <h2>
   <%= project.description %>
 </h2>
 
-
+<figure class="project-image">
 <% if project.image.present? %>
   <%= image_tag project.image %>
 <% end %>
+
+<% if project.picture.present? %>
+  <%= image_tag project.picture %>
+  <% end %>
+</figure>
 
 <h3>
   <%= project.goal %>

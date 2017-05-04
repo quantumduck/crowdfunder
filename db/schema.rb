@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170504191636) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,9 +34,8 @@ ActiveRecord::Schema.define(version: 20170504191636) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
-    t.string   "picture"
     t.integer  "user_id"
-
+    t.string   "picture"
   end
 
   create_table "rewards", force: :cascade do |t|
