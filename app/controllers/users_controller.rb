@@ -6,11 +6,18 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      auto_login(@user)
+      current_user = @user
       redirect_to projects_url
     else
       render 'new'
     end
+  end
+
+  def show
+    unless current_user && current_user.id == params[:id].to_i
+      redirect_to :root, :error => 'Cannot view other users!'
+    end
+    @user = current_user
   end
 
   private
