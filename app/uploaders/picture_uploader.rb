@@ -1,4 +1,4 @@
-class AvatarUploader < CarrierWave::Uploader::Base
+class PictureUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -9,7 +9,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
-  uploader = AvatarUploader.new
+  uploader = PictureUploader.new
   uploader.store!(my_file)
   uploader.retrieve_from_store!('my_file.png')
 
@@ -27,7 +27,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-  uploader = AvatarUploader.new
+  uploader = PictureUploader.new
   uploader.store!(my_file)
   uploader.retrieve_from_store!('my_file.png')
 
