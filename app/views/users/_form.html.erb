@@ -1,3 +1,13 @@
+<% if @user.errors.any? %>
+  <ul class="form-errors">
+    <% @user.errors.full_messages.each do |message| %>
+      <li class="error">
+        <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @user do |f| %>
 
   <div class="field">
@@ -10,27 +20,18 @@
      <%= f.text_field :last_name %>
   </div>
 
-  <div class="field<%= @user.errors.messages[:email]? " error-field": ""%>">
+  <div class="field">
      <%= f.label :email %><br />
      <%= f.text_field :email %>
-     <% if @user.errors.messages[:email].length > 0 %>
-       <p class="form-errors">Email <%= @user.errors.messages[:email] %></p>
-     <% end %>
   </div>
 
-  <div class="field<%= @user.errors.messages[:password]? " error-field": ""%>">
+  <div class="field">
      <%= f.label :password %><br />
      <%= f.password_field :password %>
-     <% if @user.errors.messages[:password].length > 0 %>
-       <p class="form-errors">Password <%= @user.errors.messages[:password].first %></p>
-     <% end %>
   </div>
-  <div class="field<%= @user.errors.messages[:password_confirmation]? " error-field": ""%>">
+  <div class="field">
      <%= f.label :password_confirmation %><br />
      <%= f.password_field :password_confirmation %>
-     <% if @user.errors.messages[:password_confirmation] %>
-       <p class="form-errors">Password confirmation <%= @user.errors.messages[:password_confirmation] %></p>
-     <% end %>
   </div>
 
   <div class="field">
