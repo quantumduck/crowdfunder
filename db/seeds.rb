@@ -18,8 +18,7 @@ Project.destroy_all
     start_date: Time.now.utc + rand(60).days,
     end_date: Time.now.utc + rand(61..1000).days
   )
-  puts p.start_date
-  puts "---------------"
+
  5.times do
    p.rewards.create!(
      description: Faker::Superhero.power,
