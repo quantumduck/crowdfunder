@@ -8,6 +8,10 @@ class Project < ActiveRecord::Base
   validates :goal, numericality: {greater_than: 0}
   validate :start_date_in_future, :end_date_after_start_date
 
+
+  mount_uploader :picture, PictureUploader
+
+
 private
 
   def start_date_in_future
