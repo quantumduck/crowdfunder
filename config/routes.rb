@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "projects#index"
 
+  get 'user/:id' => 'users#show'
   resources :projects, only: [:index, :new, :create, :show]
   resources :users, only: [:new, :create]
   resources :user_sessions, only: [:new, :create, :destroy]
