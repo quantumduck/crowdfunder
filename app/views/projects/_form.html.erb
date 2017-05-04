@@ -1,3 +1,5 @@
+<%= render partial: 'errors', locals: {errors: @project.errors} %>
+
 <%= form_for(@project, html: {multipart: true}) do |f| %>
   <div>
     <%= f.label :title %>
